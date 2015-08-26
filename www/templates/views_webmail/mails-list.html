@@ -1,0 +1,79 @@
+<ion-view cache-view="true" view-title='{{ folderName | translate}}'>
+
+
+  <ion-nav-buttons side="right">
+
+    <a href="#/app/newmail">
+      <button class="button" style="border-style: none" >
+        <i class="icon ion-plus-round" style="{{colorFont}}"></i>
+      </button>  
+    </a>
+
+    <button class="button" style="border-style: none" ng-click="searchcon()">
+      <i class="icon ion-ios7-search" style="{{colorFont}}"></i>
+    </button>
+
+    <a>
+      <button class="button" style="border-style: none;height: 0px;padding-left: 0px;padding-right: 0px;"></button>
+    </a>
+
+  </ion-nav-buttons>
+
+  <div ng-if="showSearchBar" class="bar bar-subheader item-input-inset">
+    <span class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+
+      <input id="searchKey" type="search" placeholder="{{ 'Search' | translate}}" ng-model="$parent.searchKey" autocorrect="off" focus="true" ng-enter="search()">
+      <button class="button button-clear" ng-click="hideSearch()">X</button>
+    </span>
+
+    <button class="button button-clear button-assertive" ng-click="search()">{{ 'Search' | translate}}</button>
+    <!-- <button class="button button-clear button-assertive" style="border-style: none" ng-click="searchcon()">
+      <i class="icon ion-ios7-search" style="{{colorFont}}"></i>
+    </button> -->
+  </div>
+  
+  <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'"> 
+
+    <ion-refresher pulling-text="{{ 'PulltoRefresh' | translate}}" on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <ion-list ng-repeat="item in mailList">
+      
+      <ion-item class="item item-thumbnail-left" ng-click="(item.hasReadState)=!(item.hasReadState)" type="item-text-wrap"  ng-href="#/app/mail-detail?mailId={{item.mailId}}&folderId={{item.folderId}}&typeFolder={{typeFolder}}">
+
+        <img ng-if="item.mailIconType === '1'" ng-src="img/recipient_unknown.png" style="width: 64px; height: 64px">
+        <img ng-if="item.mailIconType === '2'" ng-src="img/recipient_known.png" style="width: 64px; height: 64px">
+        <img ng-if="item.mailIconType === '3'" ng-src="{{apiUrlLocal}}{{item.fromImageUrl}}" style="width: 64px; height: 64px">
+
+        <img ng-if="item.mailIconType == '4'" ng-src="img/recipients_unknown.png" style="width: 64px; height: 64px">
+        <img ng-if="item.mailIconType == '5'" ng-src="img/recipients_unknown_known.png" style="width: 64px; height: 64px">
+        <img ng-if="item.mailIconType == '6'" ng-src="img/recipients_known.png" style="width: 64px; height: 64px">
+
+        <span class="item-note" style="padding-right: 2px;">
+          
+          <button ng-if="item.hasAttach == '1'" class="button button-small button-clear button-positive">
+              <i class="icon ion-paperclip"></i>  
+          </button>
+
+          <button class="button button-small button-clear {{item.hasReadState == 'false' ? 'button-positive' : 'button-light'}}">
+              <i class="icon ion-checkmark-circled"></i>    
+          </button>
+          
+        </span>
+
+
+
+        <h2>{{item.mailToFrom}}</h2>
+        <p>{{item.subject}}</p>
+        <h4>{{getDateMilli(item.sentDateTimeMillis)}}</h4>
+        
+      </ion-item>
+    </ion-list>
+      
+    <ion-infinite-scroll ng-if="asknext" immediate-check="false" on-infinite="loadMore()" distance="1%">
+    </ion-infinite-scroll>  
+
+  </ion-content>
+  
+</ion-view>

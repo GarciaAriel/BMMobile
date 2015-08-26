@@ -1,0 +1,48 @@
+<ion-view hide-back-button="true" view-title="{{ 'products' | translate}}">
+
+  <ion-nav-buttons side="right">
+  
+    <button class="button" style="border-style: none" ng-click="searchcon()">
+      <i class="icon ion-ios7-search" style="{{colorFont}}"></i>
+    </button>
+  
+  </ion-nav-buttons>
+    
+  <div ng-if="showSearchBar" class="bar bar-subheader item-input-inset">
+    <span class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+
+      <input id="searchKey" type="search" placeholder="{{ 'Search' | translate}}" ng-model="$parent.searchKey" autocorrect="off" focus="true" ng-enter="search()">
+      <button class="button button-clear" ng-click="hideSearch()">X</button>
+    </span>
+
+    <button class="button button-clear button-assertive" ng-click="search()">{{ 'Search' | translate}}</button>
+  </div>
+
+
+  <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'">
+
+
+    <ion-refresher pulling-text="{{'PulltoRefresh' | translate}}" on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <ion-list ng-repeat="item in products">
+      <!-- product -->
+      <a ng-href="{{getProductUrl(item)}}" class="item item-thumbnail-left">
+
+        <img ng-if='item.imageUrl !=""' ng-src="{{apiUrlLocal}}{{item.imageUrl}}">
+        <img ng-if='item.imageUrl ==""' ng-src="img/image_product.png">
+        <h2>{{ item.productName }}</h2>
+        <h4>{{ item.typeName }}</h4>
+        <h4>{{ item.groupName }}</h4>
+        <h4>{{ item.unitName }}</h4>
+        <h4>{{ item.priceFormatted }}</h4>
+      </a>
+
+    </ion-list>
+
+    <ion-infinite-scroll ng-if="asknext" immediate-check="false" on-infinite="loadMore()" distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

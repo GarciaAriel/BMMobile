@@ -1,0 +1,36 @@
+<ion-view view-title="{{ 'Contacts' | translate}}">
+
+  <ion-nav-buttons side="right">
+
+    <button class="button" style="border-style: none" ng-click="saveNewParticipants()">
+      <i class="icon ion-checkmark-round" style="{{colorFont}}"></i>
+    </button>
+
+    <a>
+      <button class="button" style="border-style: none;height: 0px;padding-left: 0px;padding-right: 0px;"></button>
+    </a>
+
+  </ion-nav-buttons>
+  
+  <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'">
+
+
+    <ion-refresher pulling-text="{{'PulltoRefresh' | translate}}" on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <ul class="list" ng-repeat="item in participants" style="margin-bottom: 0px;">
+
+      <li class="item item-checkbox">
+         <label class="checkbox">
+           <input type="checkbox" ng-model="item.model" id="item.userId">
+         </label>
+         {{item.userName}}
+      </li>
+
+    </ul>
+
+    <ion-infinite-scroll ng-if="asknext" immediate-check="false" on-infinite="loadMore()" distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

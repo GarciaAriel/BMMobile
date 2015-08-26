@@ -1,0 +1,124 @@
+<div id="cal-day-box">
+	<div class="row-fluid clearfix cal-row-head">
+		<div class="span1 col-xs-4 cal-cell"> <%= cal.locale.time %></div>
+		<div class="span11 col-xs-8 cal-cell"><%= cal.locale.events %></div>
+	</div>
+	<% if(all_day.length) {%>
+		<div class="row-fluid clearfix cal-day-hour">
+			<div class="span1 col-xs-1" style="padding-left: 2px; padding-right: 2px;"><b><%= cal.locale.all_day %></b></div>
+			<div class="span11 col-xs-11">
+				<% _.each(all_day, function(event){ %>
+					<div class="day-highlight dh-<%= event.class %>">
+						<a href="<%= event.url ? event.url : 'javascript:void(0)' %>" data-event-id="<%= event.id %>"
+						   data-event-class="<%= event['class'] %>" class="event-item">
+							<%= event.title %></a>
+					</div>
+				<% }); %>
+			</div>
+		</div>
+	<% }; %>
+	<% if(before_time.length) {%>
+		<div class="row-fluid clearfix cal-day-hour">
+			<div class="span1 col-xs-3"><b><%= cal.locale.before_time %></b></div>
+			<div class="span5 col-xs-5">
+				<% _.each(before_time, function(event){ %>
+					<div class="day-highlight dh-<%= event.class %>">
+						<!-- <span class="cal-hours"><%= event.start_hour %></span> -->
+						<a href="<%= event.url ? event.url : 'javascript:void(0)' %>" data-event-id="<%= event.id %>"
+						   data-event-class="<%= event['class'] %>" class="event-item">
+							<%= event.title %></a>
+					</div>
+				<% }); %>
+			</div>
+		</div>
+	<% }; %>
+	<div id="cal-day-panel" class="clearfix">						
+
+		<% arrayByhours = {}; %>
+		<% for(i = 0; i < by_hour.length; i++){ %>
+			<% event = by_hour[i]; %>
+			<% if(arrayByhours[event.start_hour] == undefined){ %>
+				<% arrayByhours[event.start_hour] = []; %>
+			<% }; %>	
+			<% arrayByhours[event.start_hour].push(event) %>			
+		<% }; %>	
+		<% console.log("----------hours",arrayByhours); %>
+		<% last_event = undefined%>	
+		<% for(arrhour in arrayByhours) { %>
+			<% console.log("----------hours",arrhour); %>
+			<% if(arrayByhours[arrhour].length == 1){ %>
+				<% event = arrayByhours[arrhour][0]; %>
+
+				<% firstt = 0; %>
+				<% secondd = 0; %>				
+				<% if(last_event != undefined){%>
+					<% firstt = last_event.top; %>
+					<% secondd = last_event.lines; %>
+				<% };%>
+
+				<div class=" day-event day-highlight dh-<%= event.class %>" style="clear: both; float: left; display: block; position: relative; margin-top: <%= (event.top * 30)-(firstt*30)-(secondd * 30)  %>px; height: <%= (event.lines * 30) %>px;">								
+					<!-- <span class="cal-hours"><%= event.start_hour %> - <%= event.end_hour %></span> -->					
+					<a href="<%= event.url ? event.url : 'javascript:void(0)' %>" data-event-id="<%= event.id %>"
+					   data-event-class="<%= event['class'] %>" class="event-item">
+						<%= event.title %></a>
+				</div>
+				<% last_event = event;%>
+			<% }else{%>
+								
+				<% distancia=0;%>				
+
+				<% for(i = 0; i < arrayByhours[arrhour].length; i++){%>
+					<% event = arrayByhours[arrhour][i]; %>		
+
+					<% firstt = 0; %>
+					<% secondd = 0; %>				
+					<% if(last_event != undefined){%>
+						<% firstt = last_event.top; %>
+						<% secondd = last_event.lines; %>
+					<% };%>
+
+					<div class=" day-event day-highlight dh-<%= event.class %>" style="clear: both; float: left; display: block; position: relative; margin-top: <%= (event.top * 30)-(firstt*30)-(secondd * 30) %>px; height: <%= (event.lines * 30) %>px;left: <%= distancia%>px;bottom: 2px;">
+						<!-- <span class="cal-hours"><%= event.start_hour %> - <%= event.end_hour %></span> -->					
+						<a href="<%= event.url ? event.url : 'javascript:void(0)' %>" data-event-id="<%= event.id %>"
+						   data-event-class="<%= event['class'] %>" class="event-item">
+						<%= event.title %></a>
+					</div>
+					<% last_event = event;%>
+					<% tam = $(window).width()-50; %>					
+					<% distancia= distancia + tam/arrayByhours[arrhour].length;%>		
+				<% }; %>	
+			<% }; %>				
+		<% }; %>	
+
+
+		
+		<div id="cal-day-panel-hour">
+			<% for(i = 0; i < hours; i++){ %>
+				<div class="cal-day-hour">					
+					<% for(l = 0; l < cal._hour_min(i); l++){ %>
+						<div class="row-fluid cal-day-hour-part">
+							<div class="span1 col-xs-4"><b><%= cal._hour(i, l) %></b></div>
+							<div class="span11 col-xs-8"></div>
+						</div>
+				<% }; %>
+				</div>
+			<% }; %>
+		</div>
+	</div>
+	<% if(after_time.length) {%>
+	<div class="row-fluid clearfix cal-day-hour">
+		<div class="span1 col-xs-3"><b><%= cal.locale.after_time %></b></div>
+		<div class="span11 col-xs-9">
+		<% console.log("---------------after_time"); %>		
+			<% _.each(after_time, function(event){ %>
+			<div class="day-highlight dh-<%= event.class %>">
+				<!-- <span class="cal-hours"><%= event.start_hour %></span> -->
+				<a href="<%= event.url ? event.url : 'javascript:void(0)' %>" data-event-id="<%= event.id %>"
+				   data-event-class="<%= event['class'] %>" class="event-item">
+					<%= event.title %></a>
+			</div>
+			<% }); %>
+		</div>
+	</div>
+	<% }; %>
+</div>

@@ -1,0 +1,51 @@
+<ion-view cache-view="false" view-title="{{ 'Detail' | translate}}">
+  
+  <ion-content>
+      
+    <div class="card">
+
+      <div class="item item-thumbnail-left item-text-wrap">
+        <img ng-if="boolPicture == false" src="img/image_product.png"  style="padding: 7px;">
+        <img ng-if="boolPicture == true" src="{{apiUrlLocal}}{{productPictureDefault.imageUrl}}"  style="padding: 7px;">
+        <h2 style="padding-top:10px">{{entity.productName}}</h2>
+        <p>{{productGroup.name}}</p>
+        <p>{{productType.name}}</p>
+      </div>
+
+      <ion-slide-box active-slide="myActiveSlide" style="padding-top: 0px;" ng-repeat="p in help">
+        
+          <ion-slide style="padding-top: 0px;" ng-repeat="picture in productPictureArray">
+            <div class="item ">
+              <img width="{{iframeWidth * 0.70}}" ng-src="{{apiUrlLocal}}{{picture.imageUrl}}">
+            </div>
+          </ion-slide>
+
+          <ion-slide ng-if="boolPicture == false" style="padding-top: 0px;">
+            <div class="item ">
+              <img width="{{iframeWidth * 0.70}}" ng-src="img/image_product.png">
+            </div>
+          </ion-slide>    
+
+      </ion-slide-box>
+      
+      <div class="item positive">
+        <div ng-if="entity.priceFormatted != ''">
+          {{ 'NetPrice' | translate}}:&nbsp;{{entity.priceFormatted}}
+        </div>
+        <div ng-if="entity.priceGrossFormatted != ''">
+          {{ 'GrossPrice' | translate}}:&nbsp;{{entity.priceGrossFormatted}}
+        </div>
+        <div ng-if="entity.vatId != ''">
+          {{ 'Vat' | translate}}:&nbsp;{{vatType.name}}  
+        </div>
+        
+      </div>
+      
+      <div class="item item-text-wrap">
+        {{entity.description}}
+      </div>
+
+    </div>
+   
+  </ion-content>
+</ion-view>

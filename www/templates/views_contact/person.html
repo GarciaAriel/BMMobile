@@ -1,0 +1,96 @@
+<ion-view cache-view="false" view-title="{{ 'Detail' | translate}}">
+
+
+  <ion-nav-buttons side="right">
+
+  <!--   <button class="button disabled" style="border-style: none" ng-click="borrarPersona()">
+      <i class="icon ion-trash-a" style="{{colorFont}}"></i>
+    </button> -->
+
+    <!-- Href to edit Person -->
+	<a ng-if="varUpdate=='true'" ng-href="#/app/editPerson">
+	  <button class="button" style="border-style: none" >
+	    <i class="icon ion-edit" style="{{colorFont}}"></i>
+	  </button>  
+	</a> 
+
+  <!-- Href to see contacts person -->
+  <button ng-if="varView=='true'" class="button" style="border-style: none" ng-click="seeContactsPerson()">
+    <i class="icon ion-person" style="{{colorFont}}"></i>
+  </button>  
+
+  <a>
+    <button class="button" style="border-style: none;height: 0px;padding-left: 0px;padding-right: 0px;"></button>
+  </a>
+  
+
+ 
+  </ion-nav-buttons>
+
+  <ion-content>
+    
+    <div class="list card">   
+      	<div class="item item-thumbnail-left" style="padding-top: 0px;">
+        	<img ng-if='contact.mainData.entity.imageId ==""' ng-src="img/person.png" width="60px" height= "60px">
+        	<img ng-if='contact.mainData.entity.imageId !=""' ng-src="{{apiUrlLocal}}{{contact.mainData.entity.imageUrl}}" style="width: 80px; height: 80px">
+	        <div>
+
+            <div ng-if="contact.mainData.entity.name2 == ''">
+              <div class="item item-body-auto">
+                {{titleperson}} {{contact.mainData.entity.name1}}
+              </div>
+            </div>
+
+            <div ng-if="contact.mainData.entity.name2 != ''">
+              <div class="item item-body-auto">
+               {{titleperson}} {{contact.mainData.entity.name1}}, {{contact.mainData.entity.name2}}
+              </div>
+            </div>
+            
+	        </div>
+      	</div>
+    </div>
+
+    <div class="list card">
+       <div class="item item-divider bar bar-header bar-assertive" style="
+        height: 35px;">
+         {{ 'Address' | translate}}
+       </div>     
+       
+	    <div class="item item-body">
+	      <div ng-if='contact.mainData.entity.street != ""'>{{contact.mainData.entity.street}} {{contact.mainData.entity.houseNumber}}</div>
+	      <div ng-if='contact.mainData.entity.city != ""'>{{contact.mainData.entity.zip}} {{contact.mainData.entity.city}}</div>
+	      <div ng-if='contact.mainData.entity.countryId != ""'> {{countryName}}</div>
+	    </div>   
+    </div>
+
+    <div class="list card">
+       <div class="item item-divider bar bar-header bar-assertive" style="
+        height: 35px;">
+         {{ 'Communication' | translate}}
+       </div>
+       
+       <div class="item item-body">
+
+         <div ng-if="firstGruoup.length != 0">
+                <div ng-repeat="telecom in telecomss">
+                  <div ng-repeat="tele in telecom.telecomList">
+                    <table style="width:100%">
+                      <tr>
+                        <td style="width:35%;">{{telecom.telecomTypeName}}:</td>                                            
+                        <td style="width:65%;">
+                          <a ng-if="telecom.telecomTypeType == 'PHONE'" ng-href="tel:{{tele.data}}">{{tele.data}}</a>   
+                          <a ng-if="telecom.telecomTypeType == 'EMAIL'" ng-click="writeEmail(tele.data)">{{tele.data}}</a>
+                          <a ng-if="telecom.telecomTypeType == 'LINK'"  ng-click="go_to(tele.data)">{{tele.data}}</a>
+                          <a ng-if="telecom.telecomTypeType != 'LINK' && telecom.telecomTypeType != 'EMAIL' && telecom.telecomTypeType != 'PHONE'" >{{tele.data}}</a>
+                        </td>                    
+                      </tr>                    
+                    </table>                           
+                  </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </ion-content>
+</ion-view>

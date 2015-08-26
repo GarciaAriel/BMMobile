@@ -1,0 +1,54 @@
+<ion-view cache-view="false" view-title="{{ 'ContactPersons' | translate}}">
+  <ion-nav-buttons side="right">
+
+    <!-- Href to add contact person -->
+    <!-- ng-click="" -->
+    <button ng-if="varCreate == 'true'" class="button" style="border-style: none" ng-click="addContactPerson()">
+      <i class="icon ion-person-add" style="{{colorFont}}"></i>
+    </button>
+
+    <button class="button" style="border-style: none" ng-click="searchcon()">
+      <i class="icon ion-ios7-search" style="{{colorFont}}"></i>
+    </button>
+    
+    <a>
+      <button class="button" style="border-style: none;height: 0px;padding-left: 0px;padding-right: 0px;"></button>
+    </a>
+
+  </ion-nav-buttons>
+
+  <!-- function search -->
+  <div ng-if="showSearchBar" class="bar bar-subheader item-input-inset">
+    <span class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+
+      <input id="searchKey" type="search" placeholder="{{ 'Search' | translate}}" ng-model="$parent.searchKey" autocorrect="off" focus="true" ng-enter="search()">
+      <button class="button button-clear" ng-click="hideSearch()">X</button>
+    </span>
+
+    <button class="button button-clear button-assertive" ng-click="search()">{{ 'Search' | translate}}</button>
+  </div>
+  
+  <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'">
+
+    <ion-refresher pulling-text="{{ 'PulltoRefresh' | translate}}" on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <ion-list ng-repeat="item in contacts">
+<!-- CONTACT PERSON -->
+        <a class="item item-thumbnail-left"  ng-href="{{getContactUrl(item,'contactPerson')}}" style="padding-left: 75px;">
+            <img ng-if='item.imageUrl !=""' ng-src="{{apiUrlLocal}}{{item.imageUrl}}" style="width: 60px;">
+            <img ng-if='item.imageUrl ==""' ng-src="img/contactp.png" style="width: 60px; height: 60px">                      
+
+            <h2>{{item.contactPersonName}}</h2>
+            <p>{{item.department}} </p>
+            <p>{{item.function}}</p>
+        </a>
+
+    </ion-list>
+
+    <ion-infinite-scroll ng-if="asknext" immediate-check="false" on-infinite="loadMore()" distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

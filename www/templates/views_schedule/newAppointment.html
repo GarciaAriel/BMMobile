@@ -1,0 +1,165 @@
+
+<ion-view view-title="{{viewTitle}}">
+
+  <ion-nav-buttons side="right">
+
+    <button class="button" style="border-style: none" ng-click="saveAppointment()">
+      <i class="icon ion-checkmark" style="{{colorFont}}"></i>
+    </button>
+
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <form >
+      <div class="list">
+
+        <label class="item item-input">
+          <span class="input-label">{{'Title'|translate}}:</span>
+          <input type="text" maxlength="60" required="required" placeholder="" ng-model="entity.title">
+          <i class="icon ion-alert-circled error"></i>
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            {{'Type'|translate}}:
+          </div>
+          <select ng-model="typeAppointment" ng-change="updateTypeAppointment(typeAppointment)" id="type" name="type" ng-options="c.name for c in appointmentTypes"></select>
+        </label>
+
+        <label class="item item-toggle">
+          {{'AllDay'|translate}}:
+          <label class="toggle toggle-assertive">
+            <input ng-if="entity.isRecurrence == false" type="checkbox" ng-model="entity.isAllDay" name="" ng-change="hideDiv()">
+            <input ng-if="entity.isRecurrence == true" type="checkbox" ng-model="entity.isAllDay" name="" ng-change="hideDiv()" disabled>
+              <div class="track">
+               <div class="handle"></div>
+              </div>
+          </label>
+        </label>
+
+        <!-- show or hide fields -->
+        <div class="card">
+          <div class="item item-divider">
+            {{'Start'|translate}}:
+          </div>
+          <div class="item item-text-wrap" style="padding-bottom: 0px; padding-top: 0px;">
+            <div class="row">
+              <div class="col col-50" class="button button-small button-light">
+
+                <ionic-datepicker ng-if="entity.isRecurrence == true" idate="dateStart" disablepreviousdates="false"  disablefuturedates="false" callback="datePickerCallbackStart" disableddates="disabledDates" >
+                    <button class="button button-small button-light" style="padding-right: 25px; padding-bottom: 9px;" disabled="true">{{textButtonStart}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-calendar"></i></button>
+                </ionic-datepicker>
+
+                <ionic-datepicker ng-if="entity.isRecurrence == false" idate="dateStart" disablepreviousdates="false"  disablefuturedates="false" callback="datePickerCallbackStart" disableddates="disabledDates" >
+                    <button class="button button-small button-light" style="padding-right: 25px; padding-bottom: 9px;">{{textButtonStart}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-calendar"></i></button>
+                </ionic-datepicker>
+
+
+
+                <!-- <input value="valueDate" ng-if="entity.isRecurrence == true" type="date" ng-model="dateStart.value" ng-click="changeValue(dateStart.value)" ng-change="changeValue(dateStart.value)" id="dateStartValue" disabled>
+                <input ng-if="entity.isRecurrence == false" type="date" ng-model="dateStart.value" value="2015.02.02" ng-click="changeValue(dateStart.value)" ng-change="changeValue(dateStart.value)" id="dateStartValue"> -->
+              </div>
+              <div ng-show="!entity.isAllDay" class="col col-25">
+                <label class="item item-input">
+                  <select class="button button-small button-light" ng-model="startHourType" ng-options="c.name for c in hoursArray" ng-change="updateStartHour(startHourType)"></select>
+                </label>
+              </div>
+
+              <label ng-show="!entity.isAllDay" style="padding-top: 12px;">:</label>
+
+              <div ng-show="!entity.isAllDay" class="col col-25">
+                <label class="item item-input">
+                  <select class="button button-small button-light" ng-model="startMinuteType" ng-change="updateStartMinute(startMinuteType)" id="startMinute" name="startMinute" ng-options="c.name for c in minutesArrayStart"></select>
+                </label>
+              </div>
+            </div>    
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="item item-divider">
+            {{'End'|translate}}:
+          </div>
+          <div class="item item-text-wrap" style="padding-bottom: 0px; padding-top: 0px;">
+            <div class="row">
+              <div class="col col-50" class="button button-small button-light">
+                <ionic-datepicker ng-if="entity.isRecurrence == true" idate="dateEnd" disablepreviousdates="false"  disablefuturedates="false" callback="datePickerCallbackEnd" disableddates="disabledDates" >
+                    <button class="button button-small button-light" style="padding-right: 25px; padding-bottom: 9px;" disabled="true">{{textButtonEnd}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-calendar"></i></button>
+                </ionic-datepicker>
+
+                <ionic-datepicker ng-if="entity.isRecurrence == false" idate="dateEnd" disablepreviousdates="false"  disablefuturedates="false" callback="datePickerCallbackEnd" disableddates="disabledDates" >
+                    <button class="button button-small button-light" style="padding-right: 25px; padding-bottom: 9px;">{{textButtonEnd}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-calendar"></i></button>
+                </ionic-datepicker>
+                
+                <!-- <input ng-if="entity.isRecurrence == true" type="date" ng-model="dateEnd.value" id="dateEndValue" disabled>
+                <input ng-if="entity.isRecurrence == false" type="date" ng-model="dateEnd.value" id="dateEndValue"> -->
+              </div>
+              <div ng-show="!entity.isAllDay" class="col col-25">
+                <label class="item item-input">
+                  <select class="button button-small button-light" ng-model="endHourType" id="endHour" ng-options="c.name for c in hoursArray" ng-change="updateEndHour(endHourType)"></select>
+                </label>
+              </div>
+
+              <label ng-show="!entity.isAllDay" style="padding-top: 12px;">:</label>
+
+              <div ng-show="!entity.isAllDay" class="col col-25">
+                <label class="item item-input">
+                  <select class="button button-small button-light" ng-model="endMinuteType" ng-change="updateEndMinute(endMinuteType)" id="endMinute" name="endMinute" ng-options="c.name for c in minutesArrayEnd"></select>
+                </label>
+              </div>
+            </div>    
+          </div>
+        </div>
+
+        <label class="item item-input">
+          <span class="input-label">{{'Location'|translate}}:</span>
+          <input type="text" ng-model="entity.location" ng-change="maxLenght(entity.location)">
+        </label>
+
+        <label class="item item-toggle">
+          {{'Reminder'|translate}}:
+          <label class="toggle toggle-assertive">
+            <input type="checkbox" ng-model="entity.reminder" name="">
+              <div class="track">
+               <div class="handle"></div>
+              </div>
+          </label>
+        </label>
+
+        <div ng-show="entity.reminder" class="card">
+            <label class="item item-input item-select">
+              <div class="input-label">
+                {{'Reminder'|translate}}:
+              </div>
+              <div  class="row">
+                <select ng-model="typeReminder" ng-change="updateReminder(typeReminder)" ng-options="c.name for c in reminderList"></select>
+
+              </div>  
+            </label>
+        </div>  
+
+        <label class="item item-toggle">
+          {{'Private'|translate}}:
+          <label class="toggle toggle-assertive">
+            <input type="checkbox" ng-model="entity.isPrivate" name="">
+              <div class="track">
+               <div class="handle"></div>
+              </div>
+          </label>
+        </label>
+
+        <div class="card">
+          <div class="item item-divider">
+            {{'Description'|translate}}:
+          </div>
+          <div class="item item-text-wrap" style="padding-bottom: 0px; padding-top: 0px;">
+            <textarea rows="4" ng-model="entity.descriptionText"></textarea> 
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>

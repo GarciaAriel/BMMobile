@@ -1,0 +1,437 @@
+[32mUpdated the hooks directory to have execute permissions[39m
+cp: no such file or directory: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/resources/android/icon/drawable-xxxhdpi-icon.png
+
+Running command: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/hooks/after_prepare/001_junk_cleanup.js /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile
+Running command: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/hooks/after_prepare/010_add_platform_class.js /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile
+add to body class: platform-android
+add to body class: platform-ios
+Running command: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/cordova/build --release
+Buildfile: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/build.xml
+
+-set-mode-check:
+
+-set-release-mode:
+
+-release-obfuscation-check:
+     [echo] proguard.config is ${proguard.config}
+
+-pre-build:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 24.0.2
+ [checkenv] Installed at /Applications/adt-bundle-mac-x86_64-20131030/sdk
+
+-setup:
+     [echo] Project Name: CordovaApp
+  [gettype] Project Type: Application
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 21.1.2
+     [echo] Resolving Build Target for CordovaApp...
+[gettarget] Project Target:   Android 4.4.2
+[gettarget] API level:        19
+     [echo] ----------
+     [echo] Creating output directories if needed...
+     [echo] ----------
+     [echo] Resolving Dependencies for CordovaApp...
+[dependency] Library dependencies:
+[dependency] 
+[dependency] ------------------
+[dependency] Ordered libraries:
+[dependency] 
+[dependency] ------------------
+     [echo] ----------
+     [echo] Building Libraries with 'release'...
+
+nodeps:
+
+-set-mode-check:
+
+-set-release-mode:
+
+-release-obfuscation-check:
+     [echo] proguard.config is ${proguard.config}
+
+-pre-build:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 24.0.2
+ [checkenv] Installed at /Applications/adt-bundle-mac-x86_64-20131030/sdk
+
+-setup:
+     [echo] Project Name: CordovaApp
+  [gettype] Project Type: Android Library
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 21.1.2
+     [echo] Resolving Build Target for CordovaApp...
+[gettarget] Project Target:   Android 4.4.2
+[gettarget] API level:        19
+     [echo] ----------
+     [echo] Creating output directories if needed...
+     [echo] ----------
+     [echo] Resolving Dependencies for CordovaApp...
+[dependency] Library dependencies:
+[dependency] No Libraries
+[dependency] 
+[dependency] ------------------
+
+-code-gen:
+[mergemanifest] Found Deleted Target File
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Found modified input file
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] No need to generate new BuildConfig.
+
+-pre-compile:
+
+-compile:
+     [echo] Creating library output jar file...
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+     [echo] Library project: do not convert bytecode...
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/res
+   [crunch] To destination dir: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/ant-build/res
+   [crunch] Crunched 0 PNG files to update cache
+
+-package-resources:
+     [echo] Library project: do not package resources...
+
+-package:
+     [echo] Library project: do not package apk...
+
+-post-package:
+
+-release-prompt-for-password:
+
+-release-nosign:
+     [echo] 
+[propertyfile] Updating property file: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/ant-build/build.prop
+[propertyfile] Updating property file: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/ant-build/build.prop
+[propertyfile] Updating property file: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/ant-build/build.prop
+[propertyfile] Updating property file: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/ant-build/build.prop
+
+-release-sign:
+
+-post-build:
+
+release:
+
+-code-gen:
+[mergemanifest] Found Deleted Target File
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Found modified input file
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] No need to generate new BuildConfig.
+
+-pre-compile:
+     [echo] Set jars path to: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/ant-build/classes.jar
+
+-compile:
+    [javac] Compiling 2 source files to /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/classes
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+      [dex] input: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/classes
+      [dex] input: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/ant-build/classes.jar
+      [dex] Using Pre-Dexed classes-906bae3e0598dab7a7b98bd8434bf575.jar <- /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/ant-build/classes.jar
+      [dex] Found modified input file
+      [dex] Converting compiled files and external libraries into /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/classes.dex...
+       [dx] Merged dex A (101 defs/153.0KiB) with dex B (209 defs/317.2KiB). Result is 310 defs/572.1KiB. Took 0.4s
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res
+   [crunch] To destination dir: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-hdpi/icon.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-hdpi/icon.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-hdpi/icon.png: 0% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-land-hdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-hdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-hdpi/screen.png: 81% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-land-ldpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-ldpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-ldpi/screen.png: 55% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-land-mdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-mdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-mdpi/screen.png: 60% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-land-xhdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-xhdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-xhdpi/screen.png: 81% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-land-xxhdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-xxhdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-xxhdpi/screen.png: 83% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-land-xxxhdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-xxxhdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-land-xxxhdpi/screen.png: 85% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-ldpi/icon.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-ldpi/icon.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-ldpi/icon.png: 0% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-mdpi/icon.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-mdpi/icon.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-mdpi/icon.png: 0% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-port-hdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-hdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-hdpi/screen.png: 79% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-port-ldpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-ldpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-ldpi/screen.png: 53% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-port-mdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-mdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-mdpi/screen.png: 59% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-port-xhdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-xhdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-xhdpi/screen.png: 81% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-port-xxhdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-xxhdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-xxhdpi/screen.png: 82% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-port-xxxhdpi/screen.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-xxxhdpi/screen.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-port-xxxhdpi/screen.png: 82% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-xhdpi/icon.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-xhdpi/icon.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-xhdpi/icon.png: 81% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable-xxhdpi/icon.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-xxhdpi/icon.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable-xxhdpi/icon.png: 55% size of source)
+   [crunch] Processing image to cache: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/res/drawable/icon.png => /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable/icon.png
+   [crunch]   (processed image to cache entry /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/res/drawable/icon.png: 81% size of source)
+   [crunch] Crunched 18 PNG files to update cache
+
+-package-resources:
+     [aapt] Found modified input file
+     [aapt] Creating full resource package...
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.editorconfig' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.gitattributes' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.jshintrc' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.gitignore' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.travis.yml' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.jshintrc' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.editorconfig' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.gitattributes' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.gitignore' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.gitmodules' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.jshintrc' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.mailmap' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.bower.json' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.gitignore' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.npmignore' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [aapt]     (skipping file '.travis.yml' due to ANDROID_AAPT_IGNORE pattern '.*')
+
+-package:
+[apkbuilder] Found modified input file
+[apkbuilder] Creating CordovaApp-release-unsigned.apk for release...
+
+-post-package:
+
+-release-prompt-for-password:
+
+-release-nosign:
+     [echo] No key.store and key.alias properties found in build.properties.
+     [echo] Please sign /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/CordovaApp-release-unsigned.apk manually
+     [echo] and run zipalign from the Android SDK tools.
+[propertyfile] Updating property file: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/build.prop
+[propertyfile] Updating property file: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/build.prop
+[propertyfile] Updating property file: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/build.prop
+[propertyfile] Updating property file: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/build.prop
+
+-release-sign:
+
+-post-build:
+     [move] Moving 1 file to /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build
+     [move] Moving 1 file to /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/CordovaLib/ant-build
+
+release:
+
+BUILD SUCCESSFUL
+Total time: 17 seconds
+Built the following apk(s):
+    /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/android/ant-build/CordovaApp-release-unsigned.apk
+Running command: /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/cordova/build --release
+Build settings from command line:
+    ARCHS = i386
+    CONFIGURATION_BUILD_DIR = /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator
+    SDKROOT = iphonesimulator8.1
+    SHARED_PRECOMPS_DIR = /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/sharedpch
+    VALID_ARCHS = i386
+
+=== BUILD TARGET CordovaLib OF PROJECT CordovaLib WITH CONFIGURATION Release ===
+
+Check dependencies
+
+=== BUILD TARGET bm App OF PROJECT bm App WITH CONFIGURATION Release ===
+
+Check dependencies
+
+PhaseScriptExecution Copy\ www\ directory build/bm\ App.build/Release-iphonesimulator/bm\ App.build/Script-304B58A110DAC018002A0835.sh
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    /bin/sh -c \"/Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/bm\ App.build/Release-iphonesimulator/bm\ App.build/Script-304B58A110DAC018002A0835.sh\"
+
+real	0m2.168s
+user	0m0.823s
+sys	0m1.304s
+
+CpResource bm\ App/Resources/icons/icon-72.png build/emulator/bm\ App.app/icon-72.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-72.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-76.png build/emulator/bm\ App.app/icon-76.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-76.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-40@2x.png build/emulator/bm\ App.app/icon-40@2x.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-40@2x.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default-736h.png build/emulator/bm\ App.app/Default-736h.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default-736h.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon.png build/emulator/bm\ App.app/icon.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon@2x.png build/emulator/bm\ App.app/icon@2x.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon@2x.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-50.png build/emulator/bm\ App.app/icon-50.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-50.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-60@2x.png build/emulator/bm\ App.app/icon-60@2x.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-60@2x.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-small.png build/emulator/bm\ App.app/icon-small.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-small.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default-Landscape@2x~ipad.png build/emulator/bm\ App.app/Default-Landscape@2x~ipad.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default-Landscape@2x~ipad.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default-Landscape~ipad.png build/emulator/bm\ App.app/Default-Landscape~ipad.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default-Landscape~ipad.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default-Portrait@2x~ipad.png build/emulator/bm\ App.app/Default-Portrait@2x~ipad.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default-Portrait@2x~ipad.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-small@2x.png build/emulator/bm\ App.app/icon-small@2x.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-small@2x.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default-Portrait~ipad.png build/emulator/bm\ App.app/Default-Portrait~ipad.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default-Portrait~ipad.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-40.png build/emulator/bm\ App.app/icon-40.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-40.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default-667h.png build/emulator/bm\ App.app/Default-667h.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default-667h.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default@2x~iphone.png build/emulator/bm\ App.app/Default@2x~iphone.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default@2x~iphone.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default~iphone.png build/emulator/bm\ App.app/Default~iphone.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default~iphone.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-60.png build/emulator/bm\ App.app/icon-60.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-60.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default-568h@2x~iphone.png build/emulator/bm\ App.app/Default-568h@2x~iphone.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default-568h@2x~iphone.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/splash/Default-Landscape-736h.png build/emulator/bm\ App.app/Default-Landscape-736h.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/splash/Default-Landscape-736h.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-60@3x.png build/emulator/bm\ App.app/icon-60@3x.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-60@3x.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-50@2x.png build/emulator/bm\ App.app/icon-50@2x.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-50@2x.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-76@2x.png build/emulator/bm\ App.app/icon-76@2x.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-76@2x.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+CpResource bm\ App/Resources/icons/icon-72@2x.png build/emulator/bm\ App.app/icon-72@2x.png
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/Resources/icons/icon-72@2x.png /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+ProcessInfoPlistFile build/emulator/bm\ App.app/Info.plist bm\ App/bm\ App-Info.plist
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    builtin-infoPlistUtility /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/bm\ App/bm\ App-Info.plist -genpkginfo /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/bm\ App.build/Release-iphonesimulator/bm\ App.build/MainViewController-PartialInfo.plist -additionalcontentfile /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/bm\ App.build/Release-iphonesimulator/bm\ App.build/ELCAlbumPickerController-PartialInfo.plist -additionalcontentfile /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/bm\ App.build/Release-iphonesimulator/bm\ App.build/ELCAssetPicker-PartialInfo.plist -additionalcontentfile /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/bm\ App.build/Release-iphonesimulator/bm\ App.build/ELCAssetTablePicker-PartialInfo.plist -o /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app/Info.plist
+
+GenerateDSYMFile build/emulator/bm\ App.app.dSYM build/emulator/bm\ App.app/bm\ App
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app/bm\ App -o /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app.dSYM
+
+Touch build/emulator/bm\ App.app
+    cd /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    /usr/bin/touch -c /Volumes/Data_SSD/Users/julien/Documents/dev/Jatun/ionic/BMMobile/platforms/ios/build/emulator/bm\ App.app
+
+** BUILD SUCCEEDED **
+

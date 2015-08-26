@@ -1,0 +1,73 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" style='{{colorFont}}' menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent">
+
+
+
+    </ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title" style='{{colorFont}}'>{{ 'Menu' | translate}}</h1>
+    </ion-header-bar>
+
+    <ion-content>
+      <ion-list>
+
+        <ion-item ng-if='accessRightPerson == "true"' nav-clear menu-close href="#/app/contacts">
+          <i class="icon ion-person-stalker" style='{{colorFont}}'>
+            {{ 'Contacts' | translate}}    
+          </i>
+        </ion-item>
+
+        <ion-item ng-if="accessRightAppointment != 'false' " nav-clear menu-close href="#/app/schedulerView">
+          <i class="icon ion-calendar" style='{{colorFont}}'>
+            {{ 'Scheduler' | translate}}
+          </i>
+        </ion-item>
+
+
+        <ion-item ng-if="accessRightMail != 'false' " nav-clear menu-close href="#/app/mailboxes">
+          <i class="icon ion-filing" style='{{colorFont}}'>
+            {{ 'Webmail' | translate}}
+          </i>
+        </ion-item>
+
+        <ion-item ng-if="accessRightProduct != 'false' " nav-clear menu-close href="#/app/products">
+          <i class="icon ion-clipboard" style='{{colorFont}}'>
+            {{ 'products' | translate}}
+          </i>
+        </ion-item>
+
+        <ion-item nav-clear menu-close ng-click="logout()" >
+          <i class="icon ion-log-out" style='{{colorFont}}'>
+            {{ 'Logout' | translate}}
+          </i>
+        </ion-item>
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+
+
+<!--<ion-view view-title="Dashboard">-->
+
+<!--</ion-view>-->
+
+
+</ion-side-menus>
+

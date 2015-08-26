@@ -1,0 +1,126 @@
+
+<ion-view view-title="{{ntitle}}">
+
+  <ion-nav-buttons side="right">
+
+    <button class="button" style="border-style: none" ng-click="saveOrganization()">
+      <i class="icon ion-checkmark" style="{{colorFont}}"></i>
+    </button>
+
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <form >
+      <div class="list">
+<!--            style="height:15px"-->
+        <div class="item item-divider bar bar-header bar-assertive" style="
+        height: 35px;">{{ntitle}}</div>
+          
+        <label class="item item-input">
+          <div class="input-label">{{ 'Name' | translate}}</div>
+          <input type="text" ng-model="entity.name1" placeholder="{{ 'Name' | translate}}" maxlength="60" name="dto(name1)" required="required" validated>                    
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label"></div>
+          <input type="text" ng-model="entity.name2" placeholder="{{ 'Name' | translate}}" maxlength="60" name="dto(name2)" required="required" validated>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label"></div>
+          <input type="text" ng-model="entity.name3" placeholder="{{ 'Name' | translate}}" maxlength="60" name="dto(name3)" required="required" validated>          
+        </label>           
+
+        <label class="item item-input">
+          <div class="input-label">{{ 'Street' | translate}}</div>
+          <input type="text" name="dto(street)" maxlength="40" ng-model="entity.street" placeholder="{{ 'Street' | translate}}" ng-model="data.street">
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">{{ 'Country' | translate}}</div>
+          <select ng-model="country" ng-change="updateCountry(country)" id="countryId" name="countryId" ng-options="c.name for c in countries"><option value=""></option></select>
+        </label>
+    
+        <label class="item item-input item-select">
+          <div class="input-label">{{ 'City' | translate}}</div>      
+          <select ng-model="city" ng-change="updateCity(city)" id="cityId" name="cityId" ng-options="c.name for c in cities"><option value=""></option></select>       
+        </label>        
+     
+        <label class="item item-input item-select">
+          <div class="input-label">{{ 'Language' | translate}}</div>
+          <select ng-model="language" ng-change="updateLanguage(language)" name="dto(languageId)" ng-options="c.name for c in languages" ><option value=""></option></select>    
+        </label>
+
+        <div class="item item-divider bar bar-header bar-assertive" style="
+        height: 35px;">{{ntitleCommunication}}</div>
+
+          <div class="item item-input" data-ng-repeat="choice in choices" style="height: 53px;">
+            <div class="row ">
+            <div class="col col-33 item-select">
+             <!--  <b><input type="text" ng-model="choice.telecom.name" disabled></b> -->       <select ng-model="choice.telecom" ng-options="c.name for c in telecoms" style="padding-left: 0px;  padding-right: -50;   right: 45px;  padding-right: 0px;"><option value=""></option></select>  
+            </div>
+             <div class="col">
+            <input type="text" ng-model="choice.value">              
+            </div>
+             <div class="col col-10">
+            <button class="button" style="border-style: none" ng-click="removeChoice(choice)">
+              <i class="ion-minus-circled" style="{{colorFont}}"></i>
+            </button>   
+            </div>
+            </div>
+          </div>       
+  
+          <div class="row " style="height: 50px;padding-top: 0px;">
+            <div class="col col-33 item-select">
+              <select ng-model="telecom" ng-options="c.name for c in telecoms"  style="padding-left: 0px; padding-right: 0px;right: 30px;"><option value=""></option></select>  
+            </div>
+           
+            <div class="col item-input">
+              <input type="text" ng-model="auxvalue" placeholder="{{ 'InsertTelecom' | translate}}">            
+            </div>            
+             <div class="col col-10">
+              <button class="button" style="border-style: none" ng-click="addNewChoice(auxvalue,telecom); auxvalue = ''">
+                <i class="ion-plus-circled" style="{{colorFont}}"></i>
+              </button>                        
+            </div>
+          </div>        
+        
+
+        <div class="item item-divider bar bar-header bar-assertive" style="
+        height: 35px;">{{DataAccessSecurity}}</div>  <div data-ng-repeat="group in GroupsAvailable" >              
+            <div class="item item-toggle">
+               {{group.name}}
+               <label class="toggle toggle-assertive">
+                 <input type="checkbox" ng-model="group.value">
+                 <div class="track">
+                   <div class="handle"></div>
+                 </div>
+               </label>
+            </div>
+          </div>
+
+        <div class="item item-divider bar bar-header bar-assertive" style="
+        height: 35px;">{{AdditionalInfo}}</div>            
+        
+            <div class="row">
+              <div class="col "> 
+
+              <div class="item item-body">
+                <img width="{{iframeWidth * 0.4}}"ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+                <img width="{{iframeWidth * 0.4}}"ng-show="imgURI === undefined && entity.imageUrl != ''" ng-src="{{apiUrlLocal}}{{entity.imageUrl}}">
+                <img width="{{iframeWidth * 0.4}}" ng-show="imgURI === undefined && entity.imageUrl == ''" ng-src="img/person.png">  
+              </div>
+
+              </div>
+              <div class="col">
+                <h4 align = "center">{{ 'Photo' | translate}}</h4>
+                <a class="button button-block  icon ion-camera" ng-click="takePicture()" style="{{colorFont}}"></a>
+                <a class="button button-block icon ion-images" ng-click="pickerImage()" style="{{colorFont}}"></a>               
+           
+            </div>
+           </div>
+      </div>
+    </form>    
+  </ion-content>
+</ion-view>

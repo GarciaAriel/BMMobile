@@ -1,0 +1,102 @@
+<ion-view view-title="{{ 'Contacts' | translate}}">
+
+  <ion-nav-buttons side="right">
+
+    <button class="button" style="border-style: none" ng-click="searchcon()">
+      <i class="icon ion-ios7-search" style="{{colorFont}}"></i>
+    </button>
+
+    <!-- <a href="#/app/newperson">
+      <button class="button" style="border-style: none" ng-click="">
+        <i class="icon ion-person-add" style="{{colorFont}}"></i>
+      </button>
+    </a>
+
+    <a href="#/app/neworganization">
+      <button class="button"style="border-style: none" ng-click="">
+        <i class="icon ion-person-stalker" style="{{colorFont}}"></i>
+      </button>
+    </a> -->
+  </ion-nav-buttons>
+    
+    
+    
+  <div ng-if="showSearchBar" class="bar bar-subheader item-input-inset">
+    <span class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+
+      <input id="searchKey" type="search" placeholder="{{ 'Search' | translate}}" ng-model="$parent.searchKey" autocorrect="off" >
+      <button class="button button-clear" ng-click="clearSearch()">X</button>
+    </span>
+
+    <button class="button button-clear button-assertive" ng-click="search()">{{ 'Search' | translate}}</button>
+  </div>
+
+
+
+
+
+
+  <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'">
+
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <ion-list ng-repeat="item in contacts">
+<!-- CONTACT PERSON -->
+        <ion-item ng-if='item.contactPersonAddressId != ""' class="item-avatar"  type="item-text-wrap" ng-href="{{getContactUrl(item)}}">
+            <img ng-if='item.imageId !=""' ng-src="{{apiUrlLocal}}{{item.imageUrl}}" style="width: 64px; height: 64px">
+            <img ng-if='item.imageId ==""' ng-src="img/contactp.png" style="width: 64px; height: 64px">
+            <span class="item-note"><i class="ion-chevron-right"></i></span>
+            <span class="item-note">
+              <div>
+                <i class="ion-home"></i>
+              </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+
+            <h2>{{item.contactPersonOfName}}</h2>
+            <p>{{item.addressName}} </p>
+            <p>{{item.function}}</p>
+        </ion-item>
+
+<!-- COMPANY -->
+        <ion-item ng-if='item.contactPersonAddressId == "" &&  item.addressType == "0"' class="item-avatar"  type="item-text-wrap" ng-href="{{getContactUrl(item)}}">
+          <img ng-if='item.imageId !=""' ng-src="{{apiUrlLocal}}{{item.imageUrl}}" style="width: 64px; height: 64px">
+          <img ng-if='item.imageId ==""' ng-src="img/org.png" style="width: 64px; height: 64px">
+          <span class="item-note"><i class="ion-chevron-right"></i></span>
+          <span class="item-note">
+            <div>
+              <i class="ion-briefcase"></i>
+            </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          </span>       
+
+          <h2>{{item.addressName}}</h2>
+          <p>{{item.zip}} {{item.cityName}}</p>
+        </ion-item>
+     
+  <!-- PERSON -->
+        <ion-item ng-if='item.contactPersonAddressId == "" && item.addressType == "1"' class="item-avatar"  type="item-text-wrap" ng-href="{{getContactUrl(item)}}">
+                                    
+            <img ng-if='item.imageId !=""' ng-src="{{apiUrlLocal}}{{item.imageUrl}}" style="width: 64px; height: 64px">
+            <img ng-if='item.imageId ==""' ng-src="img/person.png" style="width: 64px; height: 64px">
+
+            <span class="item-note"><i class="ion-chevron-right"></i></span>
+            <span class="item-note">
+              <div>
+                <i class="ion-person"></i>
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+            </span>  
+            <h2>{{item.addressName}}</h2>
+            <p>{{item.zip}} {{item.cityName}}</p>
+        </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll ng-if="asknext" immediate-check="false" on-infinite="loadMore()" distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

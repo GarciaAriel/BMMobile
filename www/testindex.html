@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <script src="cordova.js"></script>
+    <script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+
+    <script type="text/javascript">
+    	document.addEventListener("deviceready", onDeviceReady(), false);
+
+		function onDeviceReady() {
+		    // alert("ready");
+		    checkConnection();
+		}
+		function checkConnection()
+		{   
+			// alert("connection");
+		    // networkState = navigator.network.connection.type;
+		    console.log(navigator);
+		    console.log(navigator.connection.type);
+		    // console.log(navigator.CordovaNavigator.network);
+		    // console.log(navigator.network.onLine);
+		    // var states = {};
+		    // states[Connection.UNKNOWN]  = 'Unknown connection';
+		    // states[Connection.ETHERNET] = 'Ethernet connection';
+		    // states[Connection.WIFI]     = 'WiFi connection';
+		    // states[Connection.CELL_2G]  = 'Cell 2G connection';
+		    // states[Connection.CELL_3G]  = 'Cell 3G connection';
+		    // states[Connection.CELL_4G]  = 'Cell 4G connection';
+		    // states[Connection.NONE]     = 'No network connection';
+		    // alert('Connection type: ' + states[networkState]);
+		}
+    </script>
+    
+    <meta http-equiv="refresh" content="4; url=https://bm.bm-od.com/bm/bmappweb/index.html" />
+  </head>
+
+  <body>
+   	<img style=" position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;" height="10%" width="10%" src="img/loading.gif" alt="Loading...">
+  </body>
+
+
+
+</html>
+

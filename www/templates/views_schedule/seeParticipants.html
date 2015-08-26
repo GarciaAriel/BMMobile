@@ -1,0 +1,39 @@
+<ion-view view-title="{{ 'Contacts' | translate}}">
+
+  <ion-nav-buttons side="right">
+
+    <button class="button" style="border-style: none" ng-click="addParticipant()">
+      <i class="icon ion-person-add" style="{{colorFont}}"></i>
+    </button>
+
+    <a>
+      <button class="button" style="border-style: none;height: 0px;padding-left: 0px;padding-right: 0px;"></button>
+    </a>
+
+  </ion-nav-buttons>
+  
+  <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'">
+
+
+    <ion-refresher pulling-text="{{'PulltoRefresh' | translate}}" on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <ion-list ng-repeat="item in participants" >
+        
+
+        <a class="item item-thumbnail-left item-icon-right" href="#" style="padding-left: 75px;">
+            <img ng-if='item.imageUrl != ""' ng-src="{{apiUrlLocal}}{{item.imageUrl}}" style="width: 60px;">
+            <img ng-if='item.imageUrl == ""' ng-src="img/contactp.png" style="width: 60px; height: 60px">                      
+            <h2>{{item.userName}}</h2>
+            <p>{{item.groupName}} </p>
+
+            <i ng-if="item.canBeDeleted == 'true'" class="icon ion-trash-b" ng-click="deleteParticipant(item)"></i>
+        </a>
+
+    </ion-list>
+
+    <ion-infinite-scroll ng-if="asknext" immediate-check="false" on-infinite="loadMore()" distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,120 @@
+<ion-view view-title="{{ 'AppointmentDetail' | translate}}">
+  <ion-nav-buttons side="right">
+
+    <button class="button" style="border-style: none" ng-click="participants()">
+      <i class="icon ion-person" style="{{colorFont}}"></i>
+    </button>  
+
+    <button ng-if="updatePermission == 'true'" class="button"style="border-style: none" ng-click="callToEditAppointment()">
+      <i class="icon ion-edit" style="color: #B80808"></i>
+    </button>
+
+    <a>
+      <button class="button" style="border-style: none;height: 0px;padding-left: 0px;padding-right: 0px;"></button>
+    </a>
+
+  </ion-nav-buttons>
+    
+  <ion-content>
+  
+  <div class="card">
+      <div class="item item-divider">
+          <b>{{entity.title}}</b>
+      </div>
+
+      <div class="item item-text-wrap" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="row">
+          <div class="col"><b>{{ 'Type' | translate}}:</b></div>
+          <div class="col" align="right">{{appointmentType.name}}</div>
+        </div>
+      </div>
+
+      <div ng-if="entity.priorityId != ''"  class="item item-text-wrap" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="row">
+          <div class="col"><b>{{ 'Priority' | translate}}: </b></div>
+          <div class="col" align="right">{{priority.name}}</div>
+        </div>
+      </div>
+
+      <div class="item item-text-wrap" style="padding-top: 0px; padding-bottom: 0px;">
+
+        <div class="row">
+          <div class="col col-50">
+            <b>{{ 'StartDate' | translate}}:</b>            
+          </div>
+          <div ng-if="entity.isAllDay == 'true'" class="col col-50" align="right">
+            {{entity.startDateFormated}}
+          </div>
+          <div ng-if="entity.isAllDay == 'false'" class="col col-50" align="right">
+            {{entity.startDateFormated}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col col-50">
+            <b>{{ 'EndDate' | translate}}: </b>
+          </div>
+          <div ng-if="entity.isAllDay == 'true'" class="col col-50" align="right">
+            {{entity.endDateFormated}}
+          </div>
+          <div ng-if="entity.isAllDay == 'false'" class="col col-50" align="right">
+            {{entity.endDateFormated}}
+          </div>
+        </div>
+        <b ng-if="entity.isAllDay == 'true'">
+          <i ng-if="entity.isAllDay == 'true'" class="icon ion-checkmark-circled"></i>
+          {{ 'Thisisanalldayappointment' | translate}}
+        </b>
+      </div>
+
+      <div ng-if="entity.reminder == 'true'"  class="item item-text-wrap" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="row">
+          <div class="col"><b>{{ 'Reminder' | translate}}:</b></div>
+          <div class="col" align="right">{{timebefore}}&nbsp;{{reminder.label}}&nbsp;{{ 'before' | translate}}</div>
+        </div>
+      </div>
+
+      <div class="item item-text-wrap" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="row">
+          <div class="col"><b>{{ 'Private' | translate}}:</b></div>
+          <div ng-if="entity.isPrivate == 'true'" class="col" align="right">
+            <i class="icon ion-checkmark-circled"></i>
+          </div>
+          <div ng-if="entity.isPrivate == 'false'" class="col" align="right">
+            <i class="icon ion-close-circled"></i>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="entity.location != ''" class="item item-text-wrap" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="row">
+          <div class="col"><b> {{ 'Location' | translate}}:</b></div>
+          <div class="col" align="right">
+            {{entity.location}}
+          </div>
+        </div>
+      </div>
+
+      <div class="item item-text-wrap" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="row">
+          <div class="col"><b>{{ 'Recurrent' | translate}} : </b></div>
+          <div ng-if="entity.isRecurrence == 'true'" class="col" align="right">
+            <i class="icon ion-checkmark-circled"></i>
+          </div>
+          <div ng-if="entity.isRecurrence == 'false'" class="col" align="right">
+            <i class="icon ion-close-circled"></i>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="entity.descriptionText != ''" class="item item-text-wrap" style="padding-top: 0px; padding-bottom: 0px;">
+        <b> {{ 'Description' | translate}}: </b>
+        <br>
+          {{entity.descriptionText}}
+      </div>
+      
+  </div>
+      
+</ion-content>
+</ion-view>
+
