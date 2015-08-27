@@ -35,7 +35,7 @@
   
   <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'"> 
 
-    <ion-refresher pulling-text="{{ 'PulltoRefresh' | translate}}" on-refresh="doRefresh()">
+    <ion-refresher pulling-text="{{ 'PulltoRefresh' | translate}}" on-refresh="doRefresh()" refreshing-icon="ion-loading-d">
     </ion-refresher>
 
     <ion-list ng-repeat="item in mailList">

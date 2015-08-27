@@ -1,3 +1,4 @@
+<% console.log("----------events",events); %>
 <% _.each(events, function(event){ %>
 <div class="cal-row-fluid"  >
 	<div class="cal-cell<%= event.days%> cal-offset<%= event.start_day %> day-highlight dh-<%= event['class'] %>" data-event-class="<%= event['class'] %>">

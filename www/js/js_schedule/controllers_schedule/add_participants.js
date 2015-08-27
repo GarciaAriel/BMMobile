@@ -25,9 +25,30 @@ angular.module('starter.scheduleControllerAddParticipants', ['starter.schedulese
     console.log("results of request: ",results);
     
     $scope.participants = (results['mainData'])['list'];
-    for (var index in $scope.participants) {
-      $scope.participants[index].model = false;
+
+    if ($scope.participants != undefined && $scope.participants.length > 0) {
+      for (var index in $scope.participants) {
+        $scope.participants[index].model = false;
+      }  
     }
+    else{
+      var message = $filter('translate')('NoItems');
+            
+        var alertPopup = $ionicPopup.alert({
+          title: message,
+          buttons: [
+            { text: 'ok',
+              type: 'button-positive',
+              onTap: function(e) {
+                $ionicHistory.goBack();
+              }
+            }
+          ]
+        });
+
+    }
+
+    
     $scope.page = parseInt((results['mainData'])['pageInfo']['pageNumber']);
     $scope.totalPages = parseInt((results['mainData'])['pageInfo']['totalPages']);
     console.log("page number: "+$scope.page+" total pages: "+$scope.totalPages);
@@ -35,12 +56,8 @@ angular.module('starter.scheduleControllerAddParticipants', ['starter.schedulese
     if ( $scope.totalPages > $scope.page ) {
       $scope.asknext = true;  
     };
-  })
 
-  $scope.addParticipant = function(){
-    console.log('add participant participant');
-    $state.go();
-  }
+  })
 
   $scope.doRefresh = function() {
     console.log('*******************************************************');
@@ -152,7 +169,8 @@ angular.module('starter.scheduleControllerAddParticipants', ['starter.schedulese
         }
         else{        
           // call factory to validate the response
-          PopupFactory.getPopup($scope,result);
+          PopupFactory.getPopup($scope,result,true);
+          // $ionicHistory.goBack();
         }             
       }
     });

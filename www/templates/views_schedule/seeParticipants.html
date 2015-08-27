@@ -1,8 +1,10 @@
-<ion-view view-title="{{ 'Contacts' | translate}}">
+<ion-view view-title="{{ 'Participants' | translate}}">
 
   <ion-nav-buttons side="right">
 
-    <button class="button" style="border-style: none" ng-click="addParticipant()">
+<!-- elgarjo -->
+
+    <button ng-if="addParticipants == 'true'" class="button" style="border-style: none" ng-click="addParticipant()">
       <i class="icon ion-person-add" style="{{colorFont}}"></i>
     </button>
 
@@ -15,7 +17,7 @@
   <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'">
 
 
-    <ion-refresher pulling-text="{{'PulltoRefresh' | translate}}" on-refresh="doRefresh()">
+    <ion-refresher pulling-text="{{'PulltoRefresh' | translate}}" on-refresh="doRefresh()" refreshing-icon="ion-loading-d">
     </ion-refresher>
 
     <ion-list ng-repeat="item in participants" >
@@ -27,7 +29,7 @@
             <h2>{{item.userName}}</h2>
             <p>{{item.groupName}} </p>
 
-            <i ng-if="item.canBeDeleted == 'true'" class="icon ion-trash-b" ng-click="deleteParticipant(item)"></i>
+            <i ng-if="item.canBeDeleted == 'true' && deleteParticipants == 'true'" class="icon ion-trash-b" ng-click="deleteParticipant(item)"></i>
         </a>
 
     </ion-list>

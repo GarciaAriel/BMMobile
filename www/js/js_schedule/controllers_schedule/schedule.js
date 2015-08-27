@@ -83,8 +83,7 @@ angular.module('starter.scheduleController', ['starter.scheduleservices','ionic-
       console.log('*******************************************************');     
       console.log('on after view load');     
       if ($scope.calendar != undefined) {
-        console.log("see calendar: ",$scope.calendar);
-
+        
         var yyyy = $scope.calendar.options.position.start.getFullYear();
         var mmm = ($scope.calendar.options.position.start.getMonth()+1);
         var ddd = ($scope.calendar.options.position.start.getDate());  
@@ -156,7 +155,7 @@ angular.module('starter.scheduleController', ['starter.scheduleservices','ionic-
       
         });
 
-        console.log("final list of appointments: ",$scope.appointments);
+        console.log("list of appointments: ",$scope.appointments);
 
         $scope.calendar.options.events = $scope.appointments;
         $scope.calendar._render();

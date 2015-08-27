@@ -33,13 +33,14 @@
     
     <div class="list card">    
     <!-- ORGANIZATION -->
-      <div class="item item-thumbnail-left" style="padding-top: 0px;">
-        <img ng-if='contact.mainData.entity.imageId ==""' ng-src="img/org.png" style="width: 80px; height: 80px">
-        <img ng-if='contact.mainData.entity.imageId !=""' ng-src="{{apiUrlLocal}}{{contact.mainData.entity.imageUrl}}" style="width: 80px; height: 80px;">
+      <div class="item item-thumbnail-left" style="padding-top: 0px; padding-left: 80px;">
+
+        <img ng-if='contact.mainData.entity.imageId ==""' ng-src="img/org.png" style="width: 65px; height:70px;">
+        <img ng-if='contact.mainData.entity.imageId !=""' ng-src="{{apiUrlLocal}}{{contact.mainData.entity.imageUrl}}" style="width: 65px; height: auto;">
         <div>
 
           <div ng-if="contact.mainData.entity.name1">
-            <div class="item item-body-auto">
+            <div class="item item-body-auto" style="padding-left: 2px;">
               {{contact.mainData.entity.name1}} {{contact.mainData.entity.name2}} {{contact.mainData.entity.name3}}
             </div>
           </div>        

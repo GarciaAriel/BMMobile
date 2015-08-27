@@ -63,10 +63,12 @@ angular.module('starter.webmailControllerDetail', ['starter.webmailservices','st
 
               var newHtml = data.split("<img").join(" <img class='img-class' ");
 
+              newHtml = newHtml.split("/bm/").join(apiUrlLocal+"/");
+
               var regex = /href="([\S]+)"/g;
-              var newHtml = newHtml.replace(regex, "onClick=\"window.open('$1', '_system', 'location=yes')\"");
-              console.log('--------appppppp new html',newHtml);
-              
+              newHtml = newHtml.replace(regex, "onClick=\"window.open('$1', '_system', 'location=yes')\"");
+
+              console.log("final html: ",newHtml);
               $scope.thisCanBeusedInsideNgBindHtml = $sce.trustAsHtml(newHtml);
               
             }).
@@ -75,7 +77,6 @@ angular.module('starter.webmailControllerDetail', ['starter.webmailservices','st
             });
         }
         else{
-          // zzzzzzzzzzzzzzz detail
           angular.element(document).ready(function () {
             console.log('page loading completed');
             var element = document.getElementById("page_content");
@@ -110,13 +111,15 @@ angular.module('starter.webmailControllerDetail', ['starter.webmailservices','st
       console.log('----------------START----------------');
       console.log('slide left, item:',item);
       var i = 0;
+      var find = false;
       for(i; i < $scope.emailList.length; i++){
         if ($scope.emailList[i].mailId == item.mailId) {
+          find = true;
           break;
         }
       }
 
-      if (i < $scope.emailList.length-1) {
+      if (find) {
         var res = $scope.emailList[i+1];
         $state.go('app.details-mail',{'mailId':res.mailId,'folderId':res.folderId,'imageFrom':res.fromImageUrl,'fromImageId':res.fromImageId});   
       }

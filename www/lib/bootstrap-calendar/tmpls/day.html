@@ -32,21 +32,91 @@
 			</div>
 		</div>
 	<% }; %>
-	<div id="cal-day-panel" class="clearfix">						
+	<div id="cal-day-panel" class="clearfix">
+
+
+
+
 
 		<% arrayByhours = {}; %>
-		<% for(i = 0; i < by_hour.length; i++){ %>
+		<% console.log("00000000000000000000000000000000000000"); %>
+		<% console.log('by_hour',by_hour); %>
+
+		<% if(by_hour.length > 0){ %>
+			<% aa = by_hour[0].top; %>
+			<% bb = by_hour[0].top + by_hour[0].lines; %>
+			<% firstName = aa+"-"+bb; %>
+
+			<% arrayByhours[firstName] = []; %>
+			<% arrayByhours[firstName].push( by_hour[0] ) %>
+
+			<% console.log('----first object',arrayByhours); %>
+		<% }; %>
+
+				
+		
+		<% for(i = 1; i < by_hour.length; i++){ %>
+			<% console.log("/////////////////////////////",i); %>
+			
 			<% event = by_hour[i]; %>
-			<% if(arrayByhours[event.start_hour] == undefined){ %>
-				<% arrayByhours[event.start_hour] = []; %>
-			<% }; %>	
-			<% arrayByhours[event.start_hour].push(event) %>			
-		<% }; %>	
-		<% console.log("----------hours",arrayByhours); %>
+			<% console.log("---------",event); %>
+			<% iniE = event.top; %>
+			<% finE = event.top + event.lines; %>
+
+			<% console.log("-------iniE",iniE); %>
+			<% console.log("-------finE",finE); %>
+			
+			<% nuevoList = true; %>
+
+			<% for(arrhour in arrayByhours) { %>
+				<% console.log("***************",arrhour); %>
+				<% arrr = arrhour.split("-") %>
+				<% ini = (arrr[0]) %>
+				<% fin = (arrr[1]) %>
+
+				<% console.log("ini",ini); %>
+				<% console.log("fin",fin); %>
+
+				<% console.log("iniE > ini",iniE > ini); %>	
+				<% console.log("iniE < fin",iniE < fin); %>
+				<% console.log("finE > ini",finE > ini); %>
+				<% console.log("finE < fin",finE <fin); %>
+
+				<% objectArray = arrayByhours[arrhour]; %>
+
+				<% if( (iniE > ini && iniE < fin) || (finE > ini && finE < fin) || (iniE == ini && finE == fin) || (ini > iniE && ini < finE) || (fin > iniE && fin < finE) ){ %>
+					<% console.log("-----iffffff 1111"); %>
+					<% arrayByhours[arrhour].push(event) %>
+					<% nuevoList = false; %>
+				<% }; %>
+
+			<% }; %>
+
+			<% if(nuevoList == true){ %>
+				<% console.log("-----iffffff new list"); %>
+
+				<% e = event.top; %>
+				<% o = event.top + event.lines; %>
+				<% newName = e+"-"+o; %>
+
+				<% arrayByhours[newName] = []; %>
+				<% arrayByhours[newName].push( event ) %>
+			<% }; %>
+
+		<% }; %>
+
+
+
+
+
+
+
+		<% console.log("-----------array object",arrayByhours); %>
 		<% last_event = undefined%>	
 		<% for(arrhour in arrayByhours) { %>
-			<% console.log("----------hours",arrhour); %>
+
 			<% if(arrayByhours[arrhour].length == 1){ %>
+				<!--% console.log("---------ifff length == 1",arrhour); %-->
 				<% event = arrayByhours[arrhour][0]; %>
 
 				<% firstt = 0; %>
@@ -62,12 +132,31 @@
 					   data-event-class="<%= event['class'] %>" class="event-item">
 						<%= event.title %></a>
 				</div>
-				<% last_event = event;%>
+
+				<% topActual = event.top+event.lines %>
+				<% topAnterior = 0 %>
+
+				<% if(last_event != undefined){%>
+					<% topAnterior = last_event.top+last_event.lines %>
+				<% };%>					
+
+				<% if(topActual > topAnterior){%>
+					<% last_event = event;%>						
+				<% };%>
+
+				<!--% last_event = event;%-->
 			<% }else{%>
-								
-				<% distancia=0;%>				
+				
+				<!--% console.log("*********************************"); %-->	
+				<!--% console.log("---------elsee",arrayByhours[arrhour]); %-->	
+				<!--% console.log("---------elsee",arrhour); %-->
+
+				<% distancia=0;%>	
+				<!--% console.log("---------distancia",distancia);%-->
+				<!--% last_event = undefined; %-->
 
 				<% for(i = 0; i < arrayByhours[arrhour].length; i++){%>
+
 					<% event = arrayByhours[arrhour][i]; %>		
 
 					<% firstt = 0; %>
@@ -76,6 +165,8 @@
 						<% firstt = last_event.top; %>
 						<% secondd = last_event.lines; %>
 					<% };%>
+					<!--% console.log("firstt",firstt); %-->
+					<!--% console.log("secondd",secondd); %-->
 
 					<div class=" day-event day-highlight dh-<%= event.class %>" style="clear: both; float: left; display: block; position: relative; margin-top: <%= (event.top * 30)-(firstt*30)-(secondd * 30) %>px; height: <%= (event.lines * 30) %>px;left: <%= distancia%>px;bottom: 2px;">
 						<!-- <span class="cal-hours"><%= event.start_hour %> - <%= event.end_hour %></span> -->					
@@ -83,11 +174,28 @@
 						   data-event-class="<%= event['class'] %>" class="event-item">
 						<%= event.title %></a>
 					</div>
-					<% last_event = event;%>
+					
+					<% topActual = event.top+event.lines %>
+					<% topAnterior = 0 %>
+
+					<% if(last_event != undefined){%>
+						<% topAnterior = last_event.top+last_event.lines %>
+					<% };%>					
+
+					<% if(topActual > topAnterior){%>
+						<% last_event = event;%>						
+					<% };%>
+
+					<!--% last_event = event;%-->
+
 					<% tam = $(window).width()-50; %>					
-					<% distancia= distancia + tam/arrayByhours[arrhour].length;%>		
+					<% distancia= distancia + tam/arrayByhours[arrhour].length;%>	
+					<!--% console.log("------distancia",distancia); %-->	
 				<% }; %>	
-			<% }; %>				
+
+
+			<% }; %>
+
 		<% }; %>	
 
 

@@ -20,15 +20,16 @@
     
   </ion-nav-buttons>
 
-  <ion-content direction="xy" >
 
-    <ion-slide-box active-slide="myActiveSlide">
+  <ion-content direction="xy">
+
+    <ion-slide-box show-pager="false" active-slide="myActiveSlide">
     
       <ion-slide style="padding-top: 0px;" on-swipe-right="onSwipeRight(item)" on-swipe-left="onSwipeLeft(item)">
 
-        <div class="list card">
+        <div class="list card" style="text-align: justify;">
             
-          <div ng:bind="customHtml">{{item.body}}  </div>  
+          <div ng:bind="customHtml"> {{item.body}} </div>
 
             <div class="item item-divider">
               <ion-item class="button button-small button-clear button-assertive"
@@ -110,11 +111,11 @@
 
         </div>
 
-        <div class="card" ng-if="item.bodyType != '1'">
-          <textarea id="page_content" ng-init="updateEditor()" class="item-large-text" disabled="true">{{item.body}}</textarea>            
+        <div ng-if="item.bodyType != '1'" class="card">
+          <textarea id="page_content" ng-init="updateEditor()" class="item-large-text" disabled="true" style="text-align: justify;">{{item.body}}</textarea>            
         </div>
 
-        <div ng-if="item.bodyType != '2' "  ng-bind-html="thisCanBeusedInsideNgBindHtml" >
+        <div ng-if="item.bodyType != '2' " class="card border-card-email" ng-bind-html="thisCanBeusedInsideNgBindHtml" style="text-align: justify;">
         </div>
 
         </ion-slide>

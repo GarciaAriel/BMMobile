@@ -92,7 +92,7 @@ angular.module('starter.webmailservices', [])
         result = false;
         break;
       case FOLDER_DRAFT_TYPE:
-        result = false;
+        result = true; // aaaa
         break;
       case FOLDER_TRASH_TYPE:
         result = true;
@@ -140,7 +140,7 @@ angular.module('starter.webmailservices', [])
         result = true;
         break;
       case FOLDER_OUTBOX_TYPE:
-        result = false;
+        result = true;
         break;
     }     
     return result;

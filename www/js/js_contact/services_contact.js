@@ -37,6 +37,24 @@ angular.module('starter.contactservices', [])
 
 })
 
+.service('contactsListActual', function() {
+  var contactList = {};
+
+  var saveContactList = function(newContactList) {
+      contactList = newContactList;
+  };
+
+  var getContactList = function(){
+      return contactList;
+  };
+
+  return {
+    saveContactList: saveContactList,
+    getContactList: getContactList
+  };
+
+})
+
 .service('bridgeServiceNewContactPerson', function() {
   var contact = {};
 

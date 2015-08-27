@@ -3,6 +3,10 @@
    float: left;
    width: 49%;
    }
+.border-card-email{
+  padding-right: 10px;
+  padding-left: 10px;
+}
 
 .slider {
   height: 100%;

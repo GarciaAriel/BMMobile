@@ -37,7 +37,7 @@ angular.module('starter.rolescontrollers', ['starter.rolesservices'])
 
 //  CONTROLLER LOGIN
 
-.controller('LoginController', function ($location,COLOR_VIEW,$filter,$localstorage,$translate,$templateCache,$window,LoginService,apiUrlLocal,pathLogon,$ionicPopup,$scope,$ionicModal, AuthenticationService,$state,$http,$ionicLoading) {
+.controller('LoginController', function (PopupFactory,$location,COLOR_VIEW,$filter,$localstorage,$translate,$templateCache,$window,LoginService,apiUrlLocal,pathLogon,$ionicPopup,$scope,$ionicModal, AuthenticationService,$state,$http,$ionicLoading) {
 
     'use strict';
     
@@ -150,8 +150,11 @@ angular.module('starter.rolescontrollers', ['starter.rolesservices'])
       console.log('*******************************************************');
       console.log('==CONTROLLER ROLES== data from UI:', $scope.data);
       
-      // do nothing if data es null
-      if ($scope.data.username != null && $scope.data.password != null && $scope.data.company != null) {
+      var name = $scope.data.username;
+      var pass = $scope.data.password;
+      var comp = $scope.data.company;
+
+      if (name != null && name != "" && pass != null && pass != "" && comp != null && comp != "") {
         
         // Simple POST request
         $http({
@@ -159,56 +162,44 @@ angular.module('starter.rolescontrollers', ['starter.rolesservices'])
           url: apiUrlLocal+""+pathLogon,
           data: {"dto(login)":$scope.data.username, "dto(companyLogin)":$scope.data.company, "dto(password)":$scope.data.password, "dto(language)":"en","dto(rememberInfo)":true}
         }).success(function(data, status, headers, config) {
-          
+
+          // call factory 
+          PopupFactory.getPopup($scope,data);
           console.log("results of request: ",data);
 
-          if( data.forward != "Fail")
-          {
-            $localstorage.setObject('accessRight',data.mainData.accessRight);
-            $localstorage.setObject('userInfo',data.mainData.userInfo);
-            $localstorage.setObject('rememberUsername',$scope.data.username);
-            $localstorage.setObject('rememberCompany',$scope.data.company);
-            $localstorage.set("currentUser",'true');
+          $localstorage.setObject('accessRight',data.mainData.accessRight);
+          $localstorage.setObject('userInfo',data.mainData.userInfo);
+          $localstorage.setObject('rememberUsername',$scope.data.username);
+          $localstorage.setObject('rememberCompany',$scope.data.company);
+          $localstorage.set("currentUser",'true');
 
-            var lenguage = data.mainData.userInfo.locale;
-            var timeZone = data.mainData.userInfo.dateTimeZone;
-            console.log("locale: ","-"+lenguage+"-" );
-            console.log("locale: ","-"+timeZone+"-" );
-            $scope.ChangeLanguage(lenguage);
-            AuthenticationService.login({name: $scope.data.username, company: $scope.data.company});
-            
-            if (data.mainData.accessRight.CONTACT.VIEW == "true") {
-              $state.go('app.contacts');
+          var lenguage = data.mainData.userInfo.locale;
+          var timeZone = data.mainData.userInfo.dateTimeZone;
+          console.log("locale: ","-"+lenguage+"-" );
+          console.log(timeZone );
+          $scope.ChangeLanguage(lenguage);
+          AuthenticationService.login({name: $scope.data.username, company: $scope.data.company});
+          
+          if (data.mainData.accessRight.CONTACT.VIEW == "true") {
+            $state.go('app.contacts');
+          }
+          else{
+            if (data.mainData.accessRight.APPOINTMENT.VIEW == "true") {
+              $state.go('app.schedulerView');
             }
             else{
-              if (data.mainData.accessRight.APPOINTMENT.VIEW == "true") {
-                $state.go('app.schedulerView');
+              if (data.mainData.accessRight.MAIL.VIEW == "true") {
+                $state.go('app.mailboxes');
               }
               else{
-                if (data.mainData.accessRight.MAIL.VIEW == "true") {
-                  $state.go('app.mailboxes');
+                if (data.mainData.accessRight.PRODUCT.VIEW == "true") {
+                  $state.go('app.products');
                 }
                 else{
-                  if (data.mainData.accessRight.PRODUCT.VIEW == "true") {
-                    $state.go('app.products');
-                  }
-                  else{
-                    $state.go('app.startPage');  
-                  }
+                  $state.go('app.startPage');  
                 }
               }
             }
-          }
-          else
-          {
-            // popup credencial failed
-            var message = $filter('translate')('Messagefailed');
-            var alertPopup = $ionicPopup.alert({
-               title: message
-            });
-            
-            $state.go('login');
-            
           }
         }).
         error(function(data, status, headers, config) {

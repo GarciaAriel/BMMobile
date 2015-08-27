@@ -30,19 +30,20 @@
   <ion-content>
     
     <div class="list card">   
-      	<div class="item item-thumbnail-left" style="padding-top: 0px;">
-        	<img ng-if='contact.mainData.entity.imageId ==""' ng-src="img/person.png" width="60px" height= "60px">
-        	<img ng-if='contact.mainData.entity.imageId !=""' ng-src="{{apiUrlLocal}}{{contact.mainData.entity.imageUrl}}" style="width: 80px; height: 80px">
+      	<div class="item item-thumbnail-left" style="padding-top: 0px; padding-left: 80px;">
+
+        	<img ng-if='contact.mainData.entity.imageId ==""' ng-src="img/person.png" style="width: 65px; height:70px;">
+        	<img id="imageid" ng-if='contact.mainData.entity.imageId !=""' ng-src="{{apiUrlLocal}}{{contact.mainData.entity.imageUrl}}" style="width: 65px; height: auto;">
 	        <div>
 
             <div ng-if="contact.mainData.entity.name2 == ''">
-              <div class="item item-body-auto">
+              <div class="item item-body-auto" style="padding-left: 2px;">
                 {{titleperson}} {{contact.mainData.entity.name1}}
               </div>
             </div>
 
             <div ng-if="contact.mainData.entity.name2 != ''">
-              <div class="item item-body-auto">
+              <div class="item item-body-auto" style="padding-left: 2px;">
                {{titleperson}} {{contact.mainData.entity.name1}}, {{contact.mainData.entity.name2}}
               </div>
             </div>

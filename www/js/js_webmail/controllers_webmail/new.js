@@ -1,9 +1,5 @@
 angular.module('starter.webmailControllerNew', ['starter.webmailservices','starter.constantsWebmail'])
 
-angular.module('starter.webmailcontrollers', ['starter.webmailservices','starter.constantsWebmail'])
-
-
-
 // NEW EMAIL 
 .controller('NewMail',function(forward_reply_mail,$sce,BODY_TYPE_TEXT,BODY_TYPE_HTML,FORWARD_REPLY_MAIL_URL,$ionicPlatform,$fileFactory,$cordovaImagePicker,$state,PopupFactory,COMPOSE_EMAIL_URL,FORWARD_CREATE_MAIL_URL,apiUrlLocal,$http,$stateParams,$scope,COLOR_VIEW){
   console.log('*******************************************************');
@@ -94,10 +90,17 @@ angular.module('starter.webmailcontrollers', ['starter.webmailservices','starter
               // call factory 
               PopupFactory.getPopup($scope,data);
               console.log("results of request: ",data);
-              $scope.stringHtml = data;
+
+              //
               var newHtml = data.split("<img").join(" <img class='img-class' ");
-              
+
+              newHtml = newHtml.split("/bm/").join(apiUrlLocal+"/");
+
+              var regex = /href="([\S]+)"/g;
+              newHtml = newHtml.replace(regex, "onClick=\"window.open('$1', '_system', 'location=yes')\"");
+
               $scope.thisCanBeusedInsideNgBindHtml = $sce.trustAsHtml(newHtml);
+              
             }).
             error(function(data, status, headers, config) {
               // or server returns response with an error status.

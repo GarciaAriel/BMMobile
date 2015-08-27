@@ -2,10 +2,38 @@ angular.module('starter.services', [])
 
 .factory("PopupFactory", function ($ionicHistory,$ionicPopup,$state,$filter) {
   
-  function getPopup(scope,result) {
+  function getPopup(scope,result,showErrorAndGoBack) {
     console.log('----------------START----------------');
+
       // if session Expired
-      if (result.forward == "SessionExpired") {
+      if (result.forward != undefined && showErrorAndGoBack == true) {
+        console.log("==ERROR CONTROL== show error and go back:",result);
+        console.log('----------------END----------------');
+        
+        var message = "";
+        message = result.errorsArray[0].error;
+        for (var i = 1; i < result.errorsArray.length; i++) {
+          message=message+"<br>"+result.errorsArray[i].error ;
+        };
+        
+        return $ionicPopup.show({
+          title: $filter('translate')('Error'),
+          template:  message,
+          scope: scope,
+          buttons: [
+            { text: '<b>close</b>',
+              type: 'button-positive',
+              onTap: function(e) {
+                $ionicHistory.goBack();
+              }
+            },
+          ]
+        })
+
+      };
+
+      // if session Expired
+      if (result.forward != undefined && result.forward == "SessionExpired") {
         console.log("==ERROR CONTROL== session expired:",result);
         console.log('----------------END----------------');
         return $ionicPopup.show({
@@ -25,7 +53,7 @@ angular.module('starter.services', [])
       };
 
       // if appointment was deleted by other user
-      if (result.forward == "MainSearch") {
+      if (result.forward != undefined && result.forward == "MainSearch") {
         console.log("==ERROR CONTROL== appointment deleted:",result);
         console.log('----------------END----------------');
 
@@ -54,7 +82,7 @@ angular.module('starter.services', [])
       };
 
       // if Concurrency fail
-      if (result.forward == "ConcurrencyFail") {
+      if (result.forward != undefined && result.forward == "ConcurrencyFail") {
         console.log("==ERROR CONTROL== Concurrency Fail:",result);
         console.log('----------------END----------------');
 
@@ -120,7 +148,7 @@ angular.module('starter.services', [])
   return {
     'request': function(config) {
       $injector.get("$ionicLoading").show({
-        template: '<i class="icon ion-loading-d" style="font-size: 32px"></i>',
+        template: '<i class="icon ion-loading-d" style="font-size: 40px"></i>',
         animation: 'fade-in',
         noBackdrop: false
       });

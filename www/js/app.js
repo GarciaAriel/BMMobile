@@ -4,7 +4,20 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var starter = angular.module('starter', ['ionic','starter.constants','ui.router','starter.rolesroutes','starter.scheduleroutes','underscore', 'ngCordova', 'pascalprecht.translate', 'starter.controllers','starter.services','starter.webmailroutes','starter.contactroutes','starter.productRoutes','ngResource'])
+var starter = angular.module('starter', ['ionic',
+                                        'ui.router',
+                                        'underscore',
+                                        'ngResource',
+                                        'ngCordova',
+                                        'pascalprecht.translate', 
+                                        'starter.controllers',
+                                        'starter.constants',
+                                        'starter.services',
+                                        'starter.rolesroutes',
+                                        'starter.scheduleroutes',
+                                        'starter.webmailroutes',
+                                        'starter.contactroutes',
+                                        'starter.productRoutes'])
 
 .run(function(PopupFactory,apiUrlLocal,$http,$state,$localstorage,$translate,$cordovaNetwork,$ionicPopup,$ionicPlatform, $translate,$rootScope, $location, AuthenticationService, RoleService, SessionService) {  
 
@@ -140,6 +153,8 @@ var starter = angular.module('starter', ['ionic','starter.constants','ui.router'
 
   $translateProvider.translations("en", {
 
+    Participants:"Participants",
+    AddUser:"Add User",
     DeleteParticipant:"Delete participant",
     NewMail:"New e-mail",
     Vat:"VAT",
@@ -198,7 +213,7 @@ var starter = angular.module('starter', ['ionic','starter.constants','ui.router'
     CheckFolder: "Please check your folder bm App.",
     Downloaded: "Downloaded",
     SelectAnother: "Please select another folder.",
-    PulltoRefresh: "Please pull to refresh.",
+    PulltoRefresh: "Pull to refresh.",
     NoItems: "No Items",
     Messagefailed: "Please check your credentials.",
     MessageRequired: "Logon credentials invalid session.",
@@ -252,7 +267,9 @@ var starter = angular.module('starter', ['ionic','starter.constants','ui.router'
 
   });
   $translateProvider.translations("es", {
-    
+
+    Participants:"Participantes",
+    AddUser:"Añadir usuario",
     DeleteParticipant:"¿Eliminar participante?",
     NewMail:"Nuevo e-mail",
     Vat:"IVA",
@@ -311,7 +328,7 @@ var starter = angular.module('starter', ['ionic','starter.constants','ui.router'
     CheckFolder: "Por favor revise su carpeta de bm App.",
     Downloaded: "Descargado",
     SelectAnother: "Por favor, seleccione otra carpeta.",
-    PulltoRefresh: "Por favor, deslice para refrescar.",
+    PulltoRefresh: "Deslice para refrescar.",
     NoItems: "No hay artículos",
     Messagefailed: "Por favor compruebe sus credenciales.",
     MessageRequired: "Credenciales de inicio de sesión no válidos.",
@@ -368,6 +385,8 @@ var starter = angular.module('starter', ['ionic','starter.constants','ui.router'
 
   $translateProvider.translations("de", {
     
+    Participants:"Teilnehmer",
+    AddUser:"Teilnehmer hinzufügen",
     DeleteParticipant:"Gruppe entfernen",
     NewMail:"eMail schreiben",
     Vat:"USt.",
@@ -426,7 +445,7 @@ var starter = angular.module('starter', ['ionic','starter.constants','ui.router'
     CheckFolder: "Bitte überprüfen Sie Ihre Ordner bm App.",
     Downloaded: "Heruntergeladen",
     SelectAnother: "Bitte wählen Sie einen anderen Ordner",
-    PulltoRefresh: "Bitte ziehen Sie zur Erfrischung.",
+    PulltoRefresh: "Ziehen zum aktualisieren.",
     NoItems: "Keine Einträge",
     Messagefailed: "Bitte überprüfen Sie Ihre Anmeldeinformationen.",
     MessageRequired: "Anmeldeinformationen ungültig Sitzung.",
@@ -483,6 +502,8 @@ var starter = angular.module('starter', ['ionic','starter.constants','ui.router'
 
   $translateProvider.translations("fr", {
     
+    Participants:"Participants",
+    AddUser:"Ajouter utilisateur",
     DeleteParticipant:"Supprimer participant?",
     NewMail:"Nouveau e-mail",
     Vat:"TVA",
@@ -541,7 +562,7 @@ var starter = angular.module('starter', ['ionic','starter.constants','ui.router'
     CheckFolder: "Se il vous plaît vérifier votre dossier bm App.", 
     Downloaded: "Téléchargé", 
     SelectAnother: "Se il vous plaît sélectionner un autre dossier", 
-    PulltoRefresh: "Se il vous plaît tirer pour rafraîchir.", 
+    PulltoRefresh: "Tirer pour rafraîchir.", 
     NoItems: "Aucun article", 
     Messagefailed: "Se il vous plaît vérifier vos informations d'identification.",
     MessageRequired: "Références de connexion de session valide.",  

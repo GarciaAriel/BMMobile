@@ -1,4 +1,4 @@
-<ion-view hide-back-button="true" cache-view="false" view-title="{{ 'Contacts' | translate}}">
+<ion-view hide-back-button="true" cache-view="true" view-title="{{ 'Contacts' | translate}}">
 
   <ion-nav-buttons side="right">
 
@@ -42,8 +42,7 @@
 
   <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'">
 
-
-    <ion-refresher pulling-text="{{'PulltoRefresh' | translate}}" on-refresh="doRefresh()">
+    <ion-refresher pulling-text="{{'PulltoRefresh' | translate}}" on-refresh="doRefresh()" refreshing-icon="ion-loading-d">
     </ion-refresher>
 
     <ion-list ng-repeat="item in contacts">

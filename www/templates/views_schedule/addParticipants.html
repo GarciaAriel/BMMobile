@@ -1,4 +1,4 @@
-<ion-view view-title="{{ 'Contacts' | translate}}">
+<ion-view view-title="{{ 'AddUser' | translate}}">
 
   <ion-nav-buttons side="right">
 
@@ -15,7 +15,7 @@
   <ion-content ng-class="showSearchBar ? 'has-header has-subheader' : 'has-header'">
 
 
-    <ion-refresher pulling-text="{{'PulltoRefresh' | translate}}" on-refresh="doRefresh()">
+    <ion-refresher pulling-text="{{'PulltoRefresh' | translate}}" on-refresh="doRefresh()" refreshing-icon="ion-loading-d">
     </ion-refresher>
 
     <ul class="list" ng-repeat="item in participants" style="margin-bottom: 0px;">

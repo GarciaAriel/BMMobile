@@ -1,7 +1,9 @@
 angular.module('starter.constants',[])  
 
-//.constant('apiUrlLocal', 'http://localhost:8080/bm')
- .constant('apiUrlLocal', 'http://10.0.0.100:8080/bm')
+ .constant('apiUrlLocal', 'http://localhost:8080/bm')
+ // .constant('apiUrlLocal', 'http://10.0.0.100:8080/bm')
+// .constant('apiUrlLocal', 'http://10.0.0.140:8080/bm')
+
 // .constant('apiUrlLocal', 'http://192.168.1.132:8080/bm')
 
 // .constant('apiUrlLocal', 'http://10.0.0.11/bm')

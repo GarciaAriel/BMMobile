@@ -1,7 +1,8 @@
 <ion-view view-title="{{ 'AppointmentDetail' | translate}}">
   <ion-nav-buttons side="right">
+<!-- elgarjo -->
 
-    <button class="button" style="border-style: none" ng-click="participants()">
+    <button ng-if="seeParticipants == 'true'" class="button" style="border-style: none" ng-click="participants()">
       <i class="icon ion-person" style="{{colorFont}}"></i>
     </button>  
 

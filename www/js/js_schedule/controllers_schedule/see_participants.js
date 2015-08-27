@@ -3,7 +3,7 @@ angular.module('starter.scheduleControllerShowParticipants', ['starter.schedules
 // 
 // CONTROLLER SEE PARTICIPANTS
 //
-.controller('seeParticipants', function(deleteParticipantService,$stateParams,seeParticipantsService,$ionicHistory,PopupFactory,$filter,$ionicScrollDelegate,$scope,apiUrlLocal,$state,$ionicPopup) {
+.controller('seeParticipants', function($localstorage,deleteParticipantService,$stateParams,seeParticipantsService,$ionicHistory,PopupFactory,$filter,$ionicScrollDelegate,$scope,apiUrlLocal,$state,$ionicPopup) {
   console.log('*******************************************************');
   console.log("==CONTROLLER PRODUCTS==");
 
@@ -14,6 +14,12 @@ angular.module('starter.scheduleControllerShowParticipants', ['starter.schedules
   $scope.showSearchBar = false;
   $scope.participants = [];
   $scope.asknext = false;
+
+  $scope.accessRight = $localstorage.getObject('accessRight');
+  $scope.addParticipants = $scope.accessRight.APPOINTMENTPARTICIPANT.CREATE;
+  $scope.deleteParticipants = $scope.accessRight.APPOINTMENTPARTICIPANT.DELETE;
+  // elgarjo
+  
 
   // EXECUTE QUERY WITH ()
   $scope.listOfParticipants = seeParticipantsService.query({'appointmentId':$stateParams.appointmentId,'pageParam(pageNumber)':$scope.page});
