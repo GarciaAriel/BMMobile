@@ -42,7 +42,7 @@ angular.module('starter.webmailroutes', ['starter.webmailControllerDetail','star
 
    // ROUTE NEW MAIL
    .state('app.newmail', {
-      url: '/newmail?to&replyOperation&mailId',
+      url: '/newmail?to&replyOperation&mailId&folderName&folderId',
       cache: false,
       views: {
         'menuContent': {

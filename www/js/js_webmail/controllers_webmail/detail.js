@@ -63,7 +63,7 @@ angular.module('starter.webmailControllerDetail', ['starter.webmailservices','st
 
               var newHtml = data.split("<img").join(" <img class='img-class' ");
 
-              newHtml = newHtml.split("/bm/").join(apiUrlLocal+"/");
+              newHtml = newHtml.split('"/bm/').join('"'+apiUrlLocal+"/");
 
               var regex = /href="([\S]+)"/g;
               newHtml = newHtml.replace(regex, "onClick=\"window.open('$1', '_system', 'location=yes')\"");
@@ -77,6 +77,10 @@ angular.module('starter.webmailControllerDetail', ['starter.webmailservices','st
             });
         }
         else{
+          // var message = $scope.item.body;
+          // console.log("---====== 123444body type text:",message);
+          // $scope.bodyTypeText = $sce.trustAsHtml(message);
+          //
           angular.element(document).ready(function () {
             console.log('page loading completed');
             var element = document.getElementById("page_content");

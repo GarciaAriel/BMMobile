@@ -43,9 +43,9 @@
             {{ 'From' | translate}}:
           </div>
           <div style="text-align: left;">
-          <select ng-model="mailAccount" ng-change="updateEmail(mailAccount)" ng-options="c.name for c in mailAccountArray" style=" text-align: left; background: #fff; border: none; font-size: 14px;" ></select>
+            <select ng-model="mailAccount" ng-change="updateEmail(mailAccount)" ng-options="c.name for c in mailAccountArray" style=" text-align: left; background: #fff; border: none; font-size: 14px;" ></select>
 
-    </div>
+          </div>
         </label>
 
         <div class="row" style="padding-top: 0px; padding-bottom: 0px; border-top-style: solid; border-top-width: 0px; margin-top: -4px; margin-bottom: -4px;">
@@ -74,18 +74,21 @@
           <input type="text" placeholder="{{'Subject'|translate}}" ng-model="data.mailSubject">
         </label>
         
-        <label class="item item-input">
-            <textarea placeholder="{{'Detail'|translate}}" ng-model="data.body" style="width: 100%; height: 150px"></textarea>
+        <label ng-if="typeFolder != 'DraftItems'" class="item item-input">
+            <textarea ng-if="typeFolder != 'DraftItems'" placeholder="{{'Detail'|translate}}" ng-model="data.body" style="width: 100%; height: 150px"></textarea>
         </label>
     
       </div>
     </form>
 
-    <div class="card" ng-if='data.bodyType == "2"'>
-      <textarea id="page_content2" ng-init="updateEditor()" class="item-large-text" disabled="true">{{data.body2}}</textarea>
+    <div ng-if="data.bodyType != '1' && typeFolder == 'DraftItems'" class="card border-card-email">
+      <textarea id="page_content2" ng-init="updateEditor()" class="item-large-text" disabled="true" ng-model="data.body2" style="opacity: 1.0; font-weight: 900;">{{data.body2}}</textarea>
     </div>
 
-    <div ng-if='data.bodyType == "1"'  ng-bind-html="thisCanBeusedInsideNgBindHtml" >
+    <div ng-if="data.bodyType != '1' && typeFolder != 'DraftItems'" class="card border-card-email" ng-bind-html="bodyTypeText" style="text-align: justify;">
+    </div>
+    
+    <div ng-if="data.bodyType != '2' " class="card border-card-email" ng-bind-html="thisCanBeusedInsideNgBindHtml" style="text-align: justify;">
     </div>
 
   </ion-content>

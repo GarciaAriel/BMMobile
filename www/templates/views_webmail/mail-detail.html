@@ -21,11 +21,11 @@
   </ion-nav-buttons>
 
 
-  <ion-content direction="xy">
+  <ion-content direction="xy" on-swipe-right="onSwipeRight(item)" on-swipe-left="onSwipeLeft(item)">
 
     <ion-slide-box show-pager="false" active-slide="myActiveSlide">
     
-      <ion-slide style="padding-top: 0px;" on-swipe-right="onSwipeRight(item)" on-swipe-left="onSwipeLeft(item)">
+      <ion-slide style="padding-top: 0px;">
 
         <div class="list card" style="text-align: justify;">
             
@@ -111,9 +111,11 @@
 
         </div>
 
-        <div ng-if="item.bodyType != '1'" class="card">
-          <textarea id="page_content" ng-init="updateEditor()" class="item-large-text" disabled="true" style="text-align: justify;">{{item.body}}</textarea>            
+        <div ng-if="item.bodyType != '1'" class="card border-card-email">
+          <textarea id="page_content" ng-init="updateEditor()" class="item-large-text" disabled="true" style="opacity: 1.0; font-weight: 900;">{{item.body}}</textarea>
         </div>
+        <!-- <div ng-if="item.bodyType != '1'" class="card border-card-email" ng-bind-html="bodyTypeText" style="text-align: justify;">
+        </div> -->
 
         <div ng-if="item.bodyType != '2' " class="card border-card-email" ng-bind-html="thisCanBeusedInsideNgBindHtml" style="text-align: justify;">
         </div>
@@ -123,4 +125,15 @@
 
     </ion-content>
 </ion-view>
-<!-- </ion-nav-view>
+
+<script>
+
+  $(document).ready(function() { 
+    $('iframe').load(function() { 
+      var element = document.getElementById("page_content");
+      element.style.height = element.scrollHeight + "px";
+    }
+  });
+      
+</script>
+

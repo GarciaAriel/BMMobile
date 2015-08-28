@@ -1,7 +1,7 @@
 angular.module('starter.webmailControllerListEmail', ['starter.webmailservices','starter.constantsWebmail'])
 
 // MAIL LISTS IN FORDER (REFRESH / LOADMORE)
-.controller('MailsListCtrl',function(serviceEmailData,$ionicScrollDelegate,PopupFactory,$filter,$ionicPopup,$scope,COLOR_VIEW,apiUrlLocal, Mail,$timeout,$ionicLoading,$resource,$stateParams){
+.controller('MailsListCtrl',function($state,serviceEmailData,$ionicScrollDelegate,PopupFactory,$filter,$ionicPopup,$scope,COLOR_VIEW,apiUrlLocal, Mail,$timeout,$ionicLoading,$resource,$stateParams){
   
   console.log('*******************************************************');
   console.log('==CONTROLLER WEBMAIL== lis email in folder');  
@@ -266,6 +266,15 @@ angular.module('starter.webmailControllerListEmail', ['starter.webmailservices',
         $scope.asknext = true;  
       };              
     };
+  }
+
+  $scope.getUrlDetailOrSend = function(item){
+    // if ($scope.folderName == "DraftItems") {
+    //   return "#/app/newmail?mailId="+item.mailId+"&folderName="+$scope.folderName+"&folderId="+item.folderId;
+    // }
+    // else{
+      return "#/app/mail-detail?mailId="+item.mailId+"&folderId="+item.folderId+"&typeFolder="+$scope.typeFolder;
+    // }
   }
 
   // show or hide search
